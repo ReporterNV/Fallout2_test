@@ -86,9 +86,9 @@ int main()
 
 	fprintf(file,"\n::: Statistics :::");
 	fprintf(file,"\n     Strength: %d",info.S); fprintf(file,"       Hit Points: %d",15+(info.E*2)+info.S); fprintf(file,"               Sequence: %d",info.P*2);
-	fprintf(file,"\n   Perception: %d",info.P); fprintf(file,"      Armor Class: %d",info.A);           fprintf(file,"           Healing Rate: %d",info.E/3);
-	fprintf(file,"\n    Endurance: %d",info.E); fprintf(file,"    Action Points: %d",info.A/2+5);       fprintf(file,"        Critical Chance: %d",info.L);
-	fprintf(file,"\n     Charisma: %d",info.C); fprintf(file,"     Melee Damage: %d",info.S/3+1);        fprintf(file,"           Carry Weight: %d",25+(info.S*25));
+	fprintf(file,"\n   Perception: %d",info.P); fprintf(file,"      Armor Class: %d",info.A);               fprintf(file,"           Healing Rate: %d",info.E/3);
+	fprintf(file,"\n    Endurance: %d",info.E); fprintf(file,"    Action Points: %d",info.A/2+5);           fprintf(file,"        Critical Chance: %d",info.L);
+	fprintf(file,"\n     Charisma: %d",info.C); fprintf(file,"     Melee Damage: %d",info.S/3+1);           fprintf(file,"           Carry Weight: %d",25+(info.S*25));
 	fprintf(file,"\n Intelligence: %d",info.I); fprintf(file,"      Damage Res.: %d",0);
 	fprintf(file,"\n      Agility: %d",info.A); fprintf(file,"   Radiation Res.: %d",info.A);
 	fprintf(file,"\n         Luck: %d",info.L); fprintf(file,"      Poison Res.: %d",info.L);
@@ -97,35 +97,26 @@ int main()
 	fprintf(file,"\n\n::: Skills :::");
 		
 	fprintf(file,"\nSmall Guns ..... %d\n",5+(4*info.A));
-	fprintf(file,"Big Guns ....... %d\n",2*info.A);	
-	fprintf(file,"Energy Weapons . %d\n",2*info.A);	
-	fprintf(file,"Unarmed ........ %d\n",30+(2*(info.A+info.S)));	
-	fprintf(file,"Melee Weapons .. %d\n",20+(2*(info.A+info.S)));
-	fprintf(file,"Throwing ....... %d\n",4*(info.A));
-	fprintf(file,"First aid ...... %d\n",2*(info.P+info.I));
-	fprintf(file,"Doctor ......... %d\n",5+info.P+info.I);
-	fprintf(file,"Sneak .......... %d\n",5+(3*info.A));
-	fprintf(file,"Lockpick ....... %d\n",10+(info.P+info.A));	
-	fprintf(file,"Steal .......... %d\n",3*info.A);
-	fprintf(file,"Traps .......... %d\n",10+info.A+info.P);
-	fprintf(file,"Science ........ %d\n",4*info.I);
-	fprintf(file,"Repair ......... %d\n",3*info.I);
-	fprintf(file,"Speech ......... %d\n",5*info.C);
-	fprintf(file,"Barter ......... %d\n",4*info.C);
-	fprintf(file,"Gambling ....... %d\n",5*info.L);
-	fprintf(file,"infodoorsman .... %d\n",2*(info.E+info.I));
+	fprintf(file,"Big Guns ....... %d\n"  ,2*info.A);	
+	fprintf(file,"Energy Weapons . %d\n"  ,2*info.A);	
+	fprintf(file,"Unarmed ........ %d\n"  ,30+(2*(info.A+info.S)));	
+	fprintf(file,"Melee Weapons .. %d\n"  ,20+(2*(info.A+info.S)));
+	fprintf(file,"Throwing ....... %d\n"  ,4*(info.A));
+	fprintf(file,"First aid ...... %d\n"  ,2*(info.P+info.I));
+	fprintf(file,"Doctor ......... %d\n"  ,5+info.P+info.I);
+	fprintf(file,"Sneak .......... %d\n"  ,5+(3*info.A));
+	fprintf(file,"Lockpick ....... %d\n"  ,10+(info.P+info.A));	
+	fprintf(file,"Steal .......... %d\n"  ,3*info.A);
+	fprintf(file,"Traps .......... %d\n"  ,10+info.A+info.P);
+	fprintf(file,"Science ........ %d\n"  ,4*info.I);
+	fprintf(file,"Repair ......... %d\n"  ,3*info.I);
+	fprintf(file,"Speech ......... %d\n"  ,5*info.C);
+	fprintf(file,"Barter ......... %d\n"  ,4*info.C);
+	fprintf(file,"Gambling ....... %d\n"  ,5*info.L);
+	fprintf(file,"infodoorsman .... %d\n" ,2*(info.E+info.I));
 	
 	fclose(file);
 
-
-	printf("\nPlease wait");
-	//Sleep(1500);
-	printf(".");
-	//Sleep(1500);
-	printf(".");
-	//Sleep(1500);
-	printf(".\n");
-	//Sleep(1000);
 	puts("You result in file SPECIAL\n");
 	puts("Press ENTER for exit");
 	getchar();
