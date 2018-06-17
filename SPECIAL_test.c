@@ -1,79 +1,100 @@
 
 #include <stdio.h>
+#include <conio.h>
 #include <time.h>
-#include <stdlib.h>
+#include <windows.h>
 
-struct SPECIAL{
-unsigned char S:4;
-unsigned char P:4;
-unsigned char E:4;
-unsigned char C:4;
-unsigned char I:4;
-unsigned char A:4;
-unsigned char L:4;
-};
+void OUTPUT (short int *S ,short int *P,short int *E,short int *C,short int *I,short int *A,short int *L){
+	FILE *file;
+	file=fopen("C:/SPECIAL.txt","a");
+	fprintf(file,"\n::: Statistics :::");
+	fprintf(file,"\n     Strength: %d",*S); fprintf(file,"       Hit Points: %d",15+(*E*2)+*S); fprintf(file,"               Sequence: %d",*P*2);
+	fprintf(file,"\n   Perception: %d",*P); fprintf(file,"      Armor Class: %d",*A);           fprintf(file,"           Healing Rate: %d",*E/3);
+	fprintf(file,"\n    Endurance: %d",*E); fprintf(file,"    Action Points: %d",*A/2+5);       fprintf(file,"        Critical Chance: %d",*L);
+	fprintf(file,"\n     Charisma: %d",*C); fprintf(file,"     Melee Damage: %d",*S/3+1);        fprintf(file,"           Carry Weight: %d",25+(*S*25));
+	fprintf(file,"\n Intelligence: %d",*I); fprintf(file,"      Damage Res.: %d",0);
+	fprintf(file,"\n      Agility: %d",*A); fprintf(file,"   Radiation Res.: %d",*A);
+	fprintf(file,"\n         Luck: %d",*L); fprintf(file,"      Poison Res.: %d",*L);
+	
+
+	fprintf(file,"\n\n::: Skills :::");
+		
+	fprintf(file,"\nSmall Guns ..... %d\n",5+(4**A));
+	fprintf(file,"Big Guns ....... %d\n",2**A);	
+	fprintf(file,"Energy Weapons . %d\n",2**A);	
+	fprintf(file,"Unarmed ........ %d\n",30+(2*(*A+*S)));	
+	fprintf(file,"Melee Weapons .. %d\n",20+(2*(*A+*S)));
+	fprintf(file,"Throwing ....... %d\n",4*(*A));
+	fprintf(file,"First aid ...... %d\n",2*(*P+*I));
+	fprintf(file,"Doctor ......... %d\n",5+*P+*I);
+	fprintf(file,"Sneak .......... %d\n",5+(3**A));
+	fprintf(file,"Lockpick ....... %d\n",10+(*P+*A));	
+	fprintf(file,"Steal .......... %d\n",3**A);
+	fprintf(file,"Traps .......... %d\n",10+*A+*P);
+	fprintf(file,"Science ........ %d\n",4**I);
+	fprintf(file,"Repair ......... %d\n",3**I);
+	fprintf(file,"Speech ......... %d\n",5**C);
+	fprintf(file,"Barter ......... %d\n",4**C);
+	fprintf(file,"Gambling ....... %d\n",5**L);
+	fprintf(file,"Outdoorsman .... %d\n",2*(*E+*I));
+	
+	fclose(file);
+}
 
 int main()
 { 
-	char in;
-	struct SPECIAL info;
+	short int SPECIAL[7];
 	char name[255];
 	char Gender;
-	unsigned int Age;
+	int Age;
 	puts("Welcom to SPECIAl test!\n");
 	printf("Name: ");
-	scanf("%255s",&name);
+	scanf("%s",&name);
 	printf("Age: ");
-	scanf("%u", &Age);
+	scanf("%d",&Age);
 	printf("Gender(Male or Female): ");
 	scanf("%255s", &Gender);
 	puts("\nEnter values from 1 to 10\n");
 	
 	do{
 	printf("Strength:");
-	scanf("%hhi",&in);
-	}while((1>in)||(10<in));
-	info.S=in;
-
+	scanf("%d",&SPECIAL[0]);
+	}while((1>SPECIAL[0])||(10<SPECIAL[0]));
+	
 	do{
 	printf("Perception:");
-	scanf("%hhi",&in);
-	}while((1>in)||(10<in));
-	info.P=in;
-
+	scanf("%d",&SPECIAL[1]);
+	}while((1>SPECIAL[1])||(10<SPECIAL[1]));
+	
 	do{
 	printf("Endurance:");
-	scanf("%hhi",&in);
-	}while((1>in)||(10<in));
-	info.E=in;
+	scanf("%d",&SPECIAL[2]);
+	}while((1>SPECIAL[2])||(10<SPECIAL[2]));
 	
 	do{
 	printf("Charisma:");
-	scanf("%hhi",&in);
-	}while((1>in)||(10<in));
-	info.C=in;
-
+	scanf("%d",&SPECIAL[3]);
+	}while((1>SPECIAL[3])||(10<SPECIAL[3]));
+	
 	do{
 	printf("Intelligence:");
-	scanf("%hhi",&in);
-	}while((1>in)||(10<in));
-	info.I=in;
-
+	scanf("%d",&SPECIAL[4]);
+	}while((1>SPECIAL[4])||(10<SPECIAL[4]));
+	
 	do{
 	printf("Agility:");
-	scanf("%hhi",&in);
-	}while((1>in)||(10<in));
-	info.A=in;
-
+	scanf("%d",&SPECIAL[5]);
+	}while((1>SPECIAL[5])||(10<SPECIAL[5]));
+	
 	do{
 	printf("Luck:");
-	scanf("%hhi",&in);
-	}while((1>in)||(10<in));
-	info.L=in;
+	scanf("%d",&SPECIAL[6]);
+	}while((1>SPECIAL[6])||(10<SPECIAL[6]));
+	
 	
 	FILE *file;
-	file=fopen("SPECIAL.txt","a");
-	fprintf(file,"\n\n\t\t\t\t\t\t\tFALLOUT");
+	file=fopen("C:/SPECIAL.txt","a");
+	fprintf(file,"\n\n\t\t\t\tFALLOUT");
 	fprintf(file,"\n\t\t\tVAULT-13 PERSONNEL RECORD\n");
 	const time_t timer = time(NULL);
 	fprintf(file,"\t\t\t%s\n", ctime(&timer));
@@ -84,41 +105,18 @@ int main()
 	
 	((Gender=='M')||(Gender=='m'))? (fprintf(file,"\t\t\t Gender: Male")):(((Gender=='F')||(Gender=='f'))? (fprintf(file,"\t\t\t Gender: Female")) : (fprintf(file,"\t\t\t Gender=?")));
 
-	fprintf(file,"\n::: Statistics :::");
-	fprintf(file,"\n     Strength: %d",info.S); fprintf(file,"       Hit Points: %d",15+(info.E*2)+info.S); fprintf(file,"               Sequence: %d",info.P*2);
-	fprintf(file,"\n   Perception: %d",info.P); fprintf(file,"      Armor Class: %d",info.A);               fprintf(file,"           Healing Rate: %d",info.E/3);
-	fprintf(file,"\n    Endurance: %d",info.E); fprintf(file,"    Action Points: %d",info.A/2+5);           fprintf(file,"        Critical Chance: %d",info.L);
-	fprintf(file,"\n     Charisma: %d",info.C); fprintf(file,"     Melee Damage: %d",info.S/3+1);           fprintf(file,"           Carry Weight: %d",25+(info.S*25));
-	fprintf(file,"\n Intelligence: %d",info.I); fprintf(file,"      Damage Res.: %d",0);
-	fprintf(file,"\n      Agility: %d",info.A); fprintf(file,"   Radiation Res.: %d",info.A);
-	fprintf(file,"\n         Luck: %d",info.L); fprintf(file,"      Poison Res.: %d",info.L);
-	
+OUTPUT(&SPECIAL[0],&SPECIAL[1],&SPECIAL[2],&SPECIAL[3],&SPECIAL[4],&SPECIAL[5],&SPECIAL[6]);
 
-	fprintf(file,"\n\n::: Skills :::");
-		
-	fprintf(file,"\nSmall Guns ..... %d\n",5+(4*info.A));
-	fprintf(file,"Big Guns ....... %d\n"  ,2*info.A);	
-	fprintf(file,"Energy Weapons . %d\n"  ,2*info.A);	
-	fprintf(file,"Unarmed ........ %d\n"  ,30+(2*(info.A+info.S)));	
-	fprintf(file,"Melee Weapons .. %d\n"  ,20+(2*(info.A+info.S)));
-	fprintf(file,"Throwing ....... %d\n"  ,4*(info.A));
-	fprintf(file,"First aid ...... %d\n"  ,2*(info.P+info.I));
-	fprintf(file,"Doctor ......... %d\n"  ,5+info.P+info.I);
-	fprintf(file,"Sneak .......... %d\n"  ,5+(3*info.A));
-	fprintf(file,"Lockpick ....... %d\n"  ,10+(info.P+info.A));	
-	fprintf(file,"Steal .......... %d\n"  ,3*info.A);
-	fprintf(file,"Traps .......... %d\n"  ,10+info.A+info.P);
-	fprintf(file,"Science ........ %d\n"  ,4*info.I);
-	fprintf(file,"Repair ......... %d\n"  ,3*info.I);
-	fprintf(file,"Speech ......... %d\n"  ,5*info.C);
-	fprintf(file,"Barter ......... %d\n"  ,4*info.C);
-	fprintf(file,"Gambling ....... %d\n"  ,5*info.L);
-	fprintf(file,"infodoorsman .... %d\n" ,2*(info.E+info.I));
-	
-	fclose(file);
-
+	printf("\nPlease wait");
+	Sleep(1500);
+	printf(".");
+	Sleep(1500);
+	printf(".");
+	Sleep(1500);
+	printf(".\n");
+	Sleep(1000);
 	puts("You result in file SPECIAL\n");
 	puts("Press ENTER for exit");
-	getchar();
+	getch();
 return 0;
 }
