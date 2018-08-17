@@ -17,8 +17,8 @@ int main()
 { 
 	char in;
 	struct SPECIAL info;
-	char name[255];
 	char Gender;
+	char name[255];
 	int Age;
 	puts("Welcom to SPECIAl test!\n");
 	printf("Name: ");
