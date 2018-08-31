@@ -14,8 +14,8 @@ unsigned char L:4;
 
 typedef struct Person {
 	char name[255];
-	unsigned Age;//Если поменять местами Age и Gender, то значение Age будет равно 0g
-	char Gender;
+	unsigned Age;//Если поменять местами Age и Gender, то значение Age будет равно 0
+	char Gender;//Switch on _Bool?
 	struct SPECIAL info;
 }Person;
 
