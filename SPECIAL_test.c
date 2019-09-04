@@ -14,20 +14,20 @@ unsigned char L:4;
 };
 
 int main()
-{ 
-	char in;
-	struct SPECIAL info;
-	char Gender;
-	int Age;
-	char name[255];
+{ //--add a some little explan
+	char in; //var for input
+	char name[255]; //var for name
+	struct SPECIAL info; //stud how work structs in C
+	int Age; //var for Age
+	char Gender; //var for Gender
 	
 	puts("Welcom to SPECIAl test!\n");
 	printf("Name: ");
-	scanf("%255s",&name);
+	scanf("%255s", name);
 	printf("Age: ");
 	scanf("%d", &Age);
 	printf("Gender(Male or Female): ");
-	scanf("%255s", &Gender);
+	scanf("%*c %c", &Gender);
 	puts("\nEnter values from 1 to 10\n");
 	
 	do{
