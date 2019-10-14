@@ -16,7 +16,7 @@ unsigned char L:4;
 int main()
 { //--add a some little explan
 	char in; //var for input
-	char name[255]; //var for name
+	char name[256]; //var for name
 	struct SPECIAL info; //stud how work structs in C
 	int Age; //var for Age
 	char Gender; //var for Gender
