@@ -1,16 +1,15 @@
-
 #include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
 
 struct SPECIAL{
-unsigned char S:4;
-unsigned char P:4;
-unsigned char E:4;
-unsigned char C:4;
-unsigned char I:4;
-unsigned char A:4;
-unsigned char L:4;
+	unsigned char S:4;
+	unsigned char P:4;
+	unsigned char E:4;
+	unsigned char C:4;
+	unsigned char I:4;
+	unsigned char A:4;
+	unsigned char L:4;
 };
 
 int main()
@@ -20,7 +19,7 @@ int main()
 	struct SPECIAL info; //stud how work structs in C
 	int Age; //var for Age
 	char Gender; //var for Gender
-	
+
 	puts("Welcom to SPECIAl test!\n");
 	printf("Name: ");
 	scanf("%255s", name);
@@ -29,60 +28,67 @@ int main()
 	printf("Gender(Male or Female): ");
 	scanf("%*c %c", &Gender);
 	puts("\nEnter values from 1 to 10\n");
-	
+
 	do{
-	printf("Strength:");
-	scanf("%hhi",&in);
+		printf("Strength:");
+		scanf("%hhi",&in);
+		scanf("%*[^\n]");//"clear" stdin
 	}while((1>in)||(10<in));
 	info.S=in;
 
 	do{
-	printf("Perception:");
-	scanf("%hhi",&in);
+		printf("Perception:");
+		scanf("%hhi",&in);
+		scanf("%*[^\n]");
 	}while((1>in)||(10<in));
 	info.P=in;
 
 	do{
-	printf("Endurance:");
-	scanf("%hhi",&in);
+		printf("Endurance:");
+		scanf("%hhi",&in);
+		scanf("%*[^\n]");
 	}while((1>in)||(10<in));
 	info.E=in;
-	
+
 	do{
-	printf("Charisma:");
-	scanf("%hhi",&in);
+		printf("Charisma:");
+		scanf("%hhi",&in);
+		scanf("%*[^\n]");
 	}while((1>in)||(10<in));
 	info.C=in;
 
 	do{
-	printf("Intelligence:");
-	scanf("%hhi",&in);
+		printf("Intelligence:");
+		scanf("%hhi",&in);
+		scanf("%*[^\n]");
 	}while((1>in)||(10<in));
 	info.I=in;
 
 	do{
-	printf("Agility:");
-	scanf("%hhi",&in);
+		printf("Agility:");
+		scanf("%hhi",&in);
+		scanf("%*[^\n]");
 	}while((1>in)||(10<in));
 	info.A=in;
 
 	do{
-	printf("Luck:");
-	scanf("%hhi",&in);
+		printf("Luck:");
+		scanf("%hhi",&in);
+		scanf("%*[^\n]");
 	}while((1>in)||(10<in));
 	info.L=in;
-	
+
 	FILE *file;
 	file=fopen("SPECIAL.txt","a");
 	fprintf(file,"\n\n\t\t\t\t FALLOUT");
 	fprintf(file,"\n\t\t\tVAULT-13 PERSONNEL RECORD\n");
 	const time_t timer = time(NULL);
 	fprintf(file,"\t\t\t%s\n", ctime(&timer));
-		
+
 	fprintf(file,"Name: %s",name);
 
 	((Age<=30000)&&(Age>=0))? (fprintf(file,"\t\t\t Age: %i", Age)):(fprintf(file,"\t\t\t Age: ?"));
-	
+
 	((Gender=='M')||(Gender=='m'))? (fprintf(file,"\t\t\t Gender: Male")):(((Gender=='F')||(Gender=='f'))? (fprintf(file,"\t\t\t Gender: Female")) : (fprintf(file,"\t\t\t Gender=?")));
 
 	fprintf(file,"\n::: Statistics :::");
@@ -93,10 +99,10 @@ int main()
 	fprintf(file,"\n Intelligence: %d",info.I); fprintf(file,"      Damage Res.: %d",0);
 	fprintf(file,"\n      Agility: %d",info.A); fprintf(file,"   Radiation Res.: %d",info.A);
 	fprintf(file,"\n         Luck: %d",info.L); fprintf(file,"      Poison Res.: %d",info.L);
-	
+
 
 	fprintf(file,"\n\n::: Skills :::");
-		
+
 	fprintf(file,"\nSmall Guns ..... %d\n",5+(4*info.A));
 	fprintf(file,"Big Guns ....... %d\n"  ,2*info.A);	
 	fprintf(file,"Energy Weapons . %d\n"  ,2*info.A);	
@@ -115,7 +121,7 @@ int main()
 	fprintf(file,"Barter ......... %d\n"  ,4*info.C);
 	fprintf(file,"Gambling ....... %d\n"  ,5*info.L);
 	fprintf(file,"infodoorsman .... %d\n" ,2*(info.E+info.I));
-	
+
 	fclose(file);
 
 	puts("You result in file SPECIAL\n");
